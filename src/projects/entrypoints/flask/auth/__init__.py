@@ -28,7 +28,7 @@ def create(username, email, password):
     if not user:
         current_app.users_bus.handle(commands.CreateUser(username, email, password))
         current_app.users_bus.handle(commands.PromoteToManager(username))
-        current_app.users_bus.handle(commands.GetOrCreateToken(username))
+        current_app.users_bus.handle(commands.CreateToken(username))
         token = views.token_by_username(username, current_app.users_bus.uow)
         if token:
             current_app.logger.info(f"Manager created with token {token[0]}")
