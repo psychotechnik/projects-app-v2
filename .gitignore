@@ -35,3 +35,6 @@ act
 .secrets
 body.md
 *.db
+
+.flaskenv
+.flaskenv-test
